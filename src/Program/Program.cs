@@ -6,7 +6,23 @@ namespace PII_Game_Of_Life
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ReadBoard juegoNuevo = new ReadBoard();
+            PrintBoard dibujoJuego = new PrintBoard();
+            Logic logicaDeNuevoJuego = new Logic();
+
+            string url = @"../../assets/board.txt";
+
+            juegoNuevo.BuildBoard(url);
+
+            bool[,] copiaJuego = juegoNuevo.GetBoard;
+
+            while (true)
+            {
+                dibujoJuego.Print(copiaJuego);
+                copiaJuego = logicaDeNuevoJuego.GameLogic(copiaJuego);
+            }
+
+
         }
     }
 }
